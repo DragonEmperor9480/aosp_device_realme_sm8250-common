@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/oneplus/sm8250-common
+COMMON_PATH := device/realme/sm8250-common
 
 # A/B
 AB_OTA_UPDATER := true
@@ -94,6 +94,9 @@ TARGET_KERNEL_SOURCE := kernel/oneplus/sm8250
 TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/oplus.config
 TARGET_KERNEL_NO_GCC := true
 
+BOARD_BOOTCONFIG := \
+    androidboot.selinux=permissive
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := kona
@@ -102,7 +105,8 @@ TARGET_BOARD_PLATFORM := kona
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/custom/config/BoardConfigReservedSize.mk
+BOARD_ONEPLUS_DYNAMIC_PARTITIONS_SIZE := 11270094848
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
@@ -164,4 +168,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include the proprietary files BoardConfig.
-include vendor/oneplus/sm8250-common/BoardConfigVendor.mk
+include vendor/realme/sm8250-common/BoardConfigVendor.mk
